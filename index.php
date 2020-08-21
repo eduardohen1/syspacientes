@@ -16,6 +16,7 @@
       mysqli_get_host_info($con);
    mysqli_close($con);  
    */
+   $erro = $_GET['erro'];
  ?>
  <!DOCTYPE html>
  <html lang="pt-br">
