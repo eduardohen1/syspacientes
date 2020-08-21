@@ -11,7 +11,6 @@
       //echo "Senha maior que 6 caracteres";
       $validou = false;
    }
-
    //exibir ou retornar:
    if($validou){
       echo "<hr>";
