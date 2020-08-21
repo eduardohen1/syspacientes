@@ -14,6 +14,7 @@
       echo $rows[0] . " | " . $rows[1] . " | " . $rows[2];
    }
    mysqli_close($conexao_bd);
+
    
    //exibir ou retornar:
    if($validou){
