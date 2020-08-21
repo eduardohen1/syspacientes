@@ -31,13 +31,16 @@
     <link href="css/login.css" rel="stylesheet">
  </head>
  <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin"
+          method="post"
+          action="redirect.php"
+          >
       <img class="mb-4" src="img/login.png" alt="" width="80" height="80">
       <h1 class="h3 mb-3 font-weight-normal">Insira suas credenciais</h1>
       <label for="inputEmail" class="sr-only">Endereço de e-mail</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Endereço de E-mail" required autofocus>
+      <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Endereço de E-mail" required autofocus>
       <label for="inputPassword" class="sr-only">Senha</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+      <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Senha" required>
       
       <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
       <p class="mt-5 mb-3 text-muted">Nome de vocês &copy; 2017-2018</p>
