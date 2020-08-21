@@ -28,7 +28,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SysPacientes</title>
-    <link rel="icon" href="img/favicon/favicon1.ico">
+    <link rel="icon" href="img/favicon/favicon2.ico">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
