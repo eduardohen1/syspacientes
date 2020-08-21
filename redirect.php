@@ -4,18 +4,23 @@
 
    $email = $_POST["inputEmail"];
    $senha = $_POST["inputPassword"];
-   $validou = true;
-   $erro    = "";
+   $validou = false;
+   $erro    = "Nenhuma credencial encontrada!";
 
    //validar login
    $sql = "SELECT id, email, senha FROM usuarios WHERE email = '$email'";
    $resp = mysqli_query($conexao_bd, $sql);
-   if($rows=mysqli_fetch_row($resp)){
-      echo $rows[0] . " | " . $rows[1] . " | " . $rows[2];
+   if($rows=mysqli_fetch_row($resp)){      
+      if($senha == $rows[2]){
+         $erro    = "";
+         $validou = true;
+      }else{
+         $erro    = "Credenciais inválidas!";
+         $validou = false;
+      }
    }
    mysqli_close($conexao_bd);
 
-   
    //exibir ou retornar:
    if($validou){
       echo "<hr>";
