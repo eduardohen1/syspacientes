@@ -16,7 +16,11 @@
       mysqli_get_host_info($con);
    mysqli_close($con);  
    */
-   $erro = $_GET['erro'];
+   $onload = "";
+   $erro   = $_GET['erro'];
+   if(strlen($erro) > 0){
+      $onload = "onload='alert(\'$erro\')'";
+   }
  ?>
  <!DOCTYPE html>
  <html lang="pt-br">
@@ -45,7 +49,7 @@
       }
     </script>
  </head>
- <body class="text-center">
+ <body class="text-center" <?php echo $onload; ?>>
     <form class="form-signin"
           method="post"
           action="redirect.php"
