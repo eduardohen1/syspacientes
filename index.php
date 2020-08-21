@@ -19,7 +19,7 @@
    $onload = "";
    $erro   = $_GET['erro'];
    if(strlen($erro) > 0){
-      $onload = "onload='alert(\'$erro\')'";
+      $onload = "onload='alert(\"$erro\")'";
    }
  ?>
  <!DOCTYPE html>
