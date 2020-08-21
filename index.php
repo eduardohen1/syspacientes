@@ -16,7 +16,8 @@
       mysqli_get_host_info($con);
    mysqli_close($con);  
    */
-   $nome = $_GET["nome"];
-   echo "O Nome é: ".$nome;
+   $nome      = $_GET["nome"];
+   $sobrenome = $_GET["sobrenome"]
+   echo "O Nome é: ".$nome . "  " .$sobrenome;
    
 ?>
