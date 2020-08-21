@@ -8,4 +8,5 @@
       echo "Não foi possível conectar no banco de dados: ";
       exit;
    }
+   echo "conectou!";
 ?>
