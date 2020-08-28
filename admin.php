@@ -6,9 +6,13 @@
    //$id_usuario = $_GET["id_usuario"];
    
    //recuperando dados da sessao
-   $id_usuario = $_SESSION["id_usuario"];
-   
+   $id_usuario   = $_SESSION["id_usuario"];   
    $nome_usuario = "";
+
+   //validar se codigo do usuario esta na sesao
+   if(strlen($id_usuario) == 0){
+      header("location: index.php");
+   }
 
    $sql = "SELECT nome FROM usuarios WHERE id = " . $id_usuario;
    $resp = mysqli_query($conexao_bd, $sql);
