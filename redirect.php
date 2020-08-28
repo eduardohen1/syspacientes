@@ -10,7 +10,7 @@
       strlen(trim($senha)) == 0){
       header("location: index.php");
    }
-   exit();
+   
    //iniciando sessao
    session_start();
    $_SESSION["id_usuario"] = 0;
