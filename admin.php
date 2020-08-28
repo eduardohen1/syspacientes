@@ -87,10 +87,10 @@
         </p>
         <p>
         <table border='1'>
-         <th>
+         <tr>
             <td>Nome do usuário</td>
             <td>...</td>
-         </th>
+         </tr>
          <?php
             $sql = "SELECT id, nome FROM usuarios ORDER BY Nome";
             $resp = mysqli_query($conexao_bd, $sql);
