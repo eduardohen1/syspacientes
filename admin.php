@@ -83,7 +83,7 @@
           <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
         </p>
         <p>
-         <a class="btn btn-lg btn-danger" href="#" role="button">Sair</a>
+         <a class="btn btn-lg btn-danger" href="logout.php" role="button">Sair</a>
         </p>
       </div>
 
