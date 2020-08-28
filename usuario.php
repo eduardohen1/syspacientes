@@ -32,7 +32,9 @@
    <h1>Editando o usuário <?php echo($nomeUsuario); ?></h1>
    <hr>
    <div class="container">
-   <form>
+   <form
+      method="post"
+      action="usuario_gravar.php">
       <div class="form-group">
          <label for="inputNome">Nome do usuário:</label>
          <input type="text" class="form-control" id="inputNome" 

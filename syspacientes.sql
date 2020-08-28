@@ -36,7 +36,7 @@ CREATE TABLE `usuarios` (
   `senha` varchar(10) NOT NULL,
   `nome` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'eduardohmferreira@gmail.com','admin','Eduardo Henrique'),(2,'admin@admin.com','123456','Admin');
+INSERT INTO `usuarios` VALUES (1,'eduardohmferreira@gmail.com','admin','Eduardo Henrique'),(2,'admin@admin.com','123456','ADMIN DA SILVA'),(3,'admin2@admin.com','123456','NOVO ADMIN DA SILVA');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-21 20:32:45
+-- Dump completed on 2020-08-27 22:57:39
