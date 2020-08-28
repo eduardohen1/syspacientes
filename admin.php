@@ -99,7 +99,7 @@
                $nomeUsuario = $rows[1];
                echo("<tr>");
                echo("<td>$nomeUsuario</td>");
-               echo("<td><a class='btn btn-lg btn-success' href='usuario.php?idUs=$idUsuario' role='button'>...</a></td>");
+               echo("<td><a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$idUsuario' role='button'>...</a></td>");
                echo("</tr>");
             } 
          ?>         
