@@ -18,8 +18,7 @@
    $resp = mysqli_query($conexao_bd, $sql);
    if($rows=mysqli_fetch_row($resp)){
       $nome_usuario = $rows[0];
-   }
-   mysqli_close($conexao_bd);
+   }   
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -87,7 +86,25 @@
           <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
         </p>
         <p>
-        <a class="btn btn-lg btn-success" href="usuario.php" role="button">Editar usuário</a>
+        <table border='1'>
+         <th>
+            <td>Nome do usuário</td>
+            <td>...</td>
+         </th>
+         <?php
+            $sql = "SELECT id, nome FROM usuarios ORDER BY Nome";
+            $resp = mysqli_query($conexao_bd, $sql);
+            while($rows=mysqli_fetch_row($resp)){
+               $idUsuario   = $rows[0];
+               $nomeUsuario = $rows[1];
+               echo("<tr>");
+               echo("<td>$nomeUsuario</td>");
+               echo("<td><a class='btn btn-lg btn-success' href='usuario.php?idUs=$idUsuario' role='button'>...</a></td>");
+               echo("</tr>");
+            } 
+         ?>         
+        </table>
+        <!-- <a class="btn btn-lg btn-success" href="usuario.php" role="button">Editar usuário</a>-->
         </p>
         <p>
          <a class="btn btn-lg btn-danger" href="logout.php" role="button">Sair</a>
@@ -98,5 +115,8 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-1.12.4.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
+    <?php
+    mysqli_close($conexao_bd);
+    ?>
 </body>
 </html>
