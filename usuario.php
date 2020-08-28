@@ -49,11 +49,11 @@
       </div>
       <div class="form-group">
          <label for="inputPassword">Senha</label>
-         <input type="text" class="form-control" id="inputPassword" name="inputPassword" value="<?php echo($senhaUsuario);?>"
-                >
-
-      </div>      
-      <button type="submit" class="btn btn-primary">Gravar</button>
+         <input type="text" class="form-control" id="inputPassword" name="inputPassword" value="<?php echo($senhaUsuario);?>">
+      </div>
+      <input type="hidden" id="inputIdUsuario" name="inputIdUsuario" value="<?php echo($idUsuario) ?>">
+      <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
+      <a href="admin.php" class="btn btn-warning" role="button">Retornar</a>
    </form>
    </div>
 </body>
