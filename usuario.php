@@ -4,9 +4,18 @@
    require_once('conexao.php');
 
    $idUsuario = $_GET['idUsuario'];
+   $nomeUsuario  = "";
+   $emailUsuario = "";
+   $senhaUsuario = "";
 
-
-
+   $sql = "SELECT nome, email, senha FROM usuarios WHERE id = " . $idUsuario;
+   $resp = mysqli_query($conexao_bd, $sql);
+   if($rows=mysqli_fetch_row($resp)){
+      $nomeUsuario  = $rows[0];
+      $emailUsuario = $rows[1];
+      $senhaUsuario = $rows[2];
+   }  
+   mysqli_close($conexao_bd);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,13 +28,16 @@
    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-   <h1>Editando o usuário XXXX</h1>
+   <h1>Editando o usuário <?php echo($nomeUsuario); ?></h1>
    <hr>
    <div class="container">
    <form>
       <div class="form-group">
          <label for="inputNome">Nome do usuário:</label>
-         <input type="text" class="form-control" id="inputNome" name="inputNome" placeholder="Nome do usuário">
+         <input type="text" class="form-control" id="inputNome" 
+                name="inputNome" placeholder="Nome do usuário"
+                value="<?php echo($nomeUsuario); ?>"
+                >
       </div>
       <div class="form-group">
          <label for="inputEmail">E-mail:</label>
