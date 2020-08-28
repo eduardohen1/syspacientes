@@ -5,6 +5,9 @@
    $email      = $_POST["inputEmail"];
    $senha      = $_POST["inputPassword"];
 
+   echo(">>>$email<<<<br>");
+   echo(">>>$senha<<<<br>");
+   exit();
    //validando variaveis:
    if(strlen($email) == 0 && strlen($senha) == 0){
       header("location: index.php");
