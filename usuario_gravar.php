@@ -11,6 +11,8 @@
    if(strlen($id_usuario) > 0){
       //atualizar
       $sql = "UPDATE usuario SET nome='$nome', email='$email', senha='$senha' WHERE id = $id_usuario";
+      echo($sql);
+      exit();
       mysqli_query($conexao_bd, $sql);
    }else{
       //novo
