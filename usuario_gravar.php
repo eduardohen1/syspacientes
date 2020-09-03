@@ -1,6 +1,9 @@
 <?php
+   session_start();
    require_once('variaveis.php');
    require_once('conexao.php');
+
+   echo("oi");
 
    $senha      = $_POST["inputPassword"];
    $email      = $_POST["inputEmail"];
