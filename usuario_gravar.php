@@ -10,7 +10,7 @@
    
    if(strlen($id_usuario) > 0){
       //atualizar
-      $sql = "UPDATE usuario SET nome = '$nome', email='$email', senha='$senha' WHERE id_usuario = $id_usuario";
+      $sql = "UPDATE usuario SET nome='$nome', email='$email', senha='$senha' WHERE id = $id_usuario";
       mysqli_query($conexao_bd, $sql);
    }else{
       //novo
