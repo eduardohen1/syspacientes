@@ -48,10 +48,10 @@
 
         <div class="collapse navbar-collapse" id="navbarsExample09">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a class="nav-link" href="admin.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
               <div class="dropdown-menu" aria-labelledby="dropdown09">
                 <a class="dropdown-item" href="#">Cadastro de pessoas</a>
@@ -76,17 +76,39 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Sistema de Pacientes!!!</h1>
-        <p>Bem vindo <?php echo($nome_usuario); ?>.</p>        
+        <h1>Listagem de usuários:</h1>
+        <table class="table">
         <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
-        <p>
-        <!-- <a class="btn btn-lg btn-success" href="usuario.php" role="button">Editar usuário</a>-->
-        </p>
-        <p>
-         <a class="btn btn-lg btn-danger" href="logout.php" role="button">Sair</a>
-        </p>
+         <thead>
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col">Nome</th>
+               <th scope="col">E-mail</th>
+               <th scope="col">...</th>
+            </tr>
+         </thead>
+         <tbody>
+            <?php
+               $sql = "SELECT id, nome, email FROM usuarios ORDER BY Nome";
+               $resp = mysqli_query($conexao_bd, $sql);
+               while($rows=mysqli_fetch_row($resp)){
+                  $idUsuario   = $rows[0];
+                  $nomeUsuario = $rows[1];
+                  $email       = $rows[2];
+                  echo("<tr>");
+                  echo("<th scope='row'>$idUsuario</td>");
+                  echo("<td>$nomeUsuario</td>");
+                  echo("<td>$email</td>");
+                  echo("<td>");
+                  echo("<a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$idUsuario' role='button'>Editar</a>&nbsp;");
+                  echo("<a class='btn btn-lg btn-error' href='usuario_excluir.php?idUsuario=$idUsuario' role='button'>Excluir</a>");
+                  echo("</td>");
+                  echo("</tr>");
+               }                
+            ?>
+         </tbody>
+        </table>
+        </p>        
       </div>
     </div>
 
