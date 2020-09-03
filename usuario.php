@@ -55,7 +55,7 @@
       </div>
       <input type="hidden" id="inputIdUsuario" name="inputIdUsuario" value="<?php echo($idUsuario) ?>">
       <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
-      <a href="admin.php" class="btn btn-warning" role="button">Retornar</a>
+      <a href="usuario_list.php" class="btn btn-warning" role="button">Retornar</a>
    </form>
    </div>
 </body>
