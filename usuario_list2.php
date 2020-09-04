@@ -101,7 +101,8 @@
                      echo("<td>$email</td>");
                      echo("<td>");
                         echo("<a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$id' role='button'>Editar</a>&nbsp;");
-                        echo("<a class='btn btn-lg btn-danger'  href='usuario_excluir.php?idUsuario=$id' role='button'>Excluir</a>");
+                        if($id != $id_usuario)
+                          echo("<a class='btn btn-lg btn-danger'  href='usuario_excluir.php?idUsuario=$id' role='button'>Excluir</a>");
                      echo("</td>");
                      echo("</tr>");
                   } 
