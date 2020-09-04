@@ -111,6 +111,16 @@
                <label for="inputPassword">Senha</label>
                <input type="text" class="form-control" id="inputPassword" name="inputPassword" value="<?php echo($senhaUsuario);?>">
             </div>
+            <div class="form-group">
+               <label for="lstTipoAcesso">Tipo de acesso</label>
+               <select class="form-control" id="lstTipoAcesso" name="lstTipoAcesso">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+               </select>
+            </div>
             <input type="hidden" id="inputIdUsuario" name="inputIdUsuario" value="<?php echo($idUsuario) ?>">
             <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
             <a href="usuario_list2.php" class="btn btn-warning" role="button">Retornar</a>
