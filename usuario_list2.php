@@ -110,7 +110,7 @@
                      if($tipoAcesso == 1){
                         echo("<a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$id' role='button'>Editar</a>&nbsp;");
                         if($id != $id_usuario)
-                          echo("<a class='btn btn-lg btn-danger'  href='usuario_excluir.php?idUsuario=$id' role='button'>Excluir</a>");
+                          echo("<a class='btn btn-lg btn-danger'  href='javascript:excluirUsuario($id)' role='button'>Excluir</a>");
                      }else{
                        echo("-");
                      }
@@ -135,5 +135,13 @@
     <?php
     mysqli_close($conexao_bd);
     ?>
+    <script type="text/javascript">
+      function excluirUsuario(id){
+        var resp = confirm('Deseja realmente excluir este usuário?');
+        if(resp == true){
+          window.location.href = "usuario_excluir.php?idUsuario=" + id;
+        }
+      }
+    </script>
 </body>
 </html>
