@@ -22,14 +22,21 @@
    $nomeUsuario  = "";
    $emailUsuario = "";
    $senhaUsuario = "";
+   $tipo_acesso  = 0;
+   $descAcesso   = "";
 
    if($idUsuario != 0){
-      $sql = "SELECT nome, email, senha FROM usuarios WHERE id = " . $idUsuario;
+      $sql = "SELECT u.nome, u.email, u.senha, u.tipo_acesso, t.descricao 
+              FROM usuarios u
+                  INNER JOIN tipo_acesso t ON u.tipo_acesso = t.id
+              WHERE u.id = " . $idUsuario;
       $resp = mysqli_query($conexao_bd, $sql);
       if($rows=mysqli_fetch_row($resp)){
          $nomeUsuario  = $rows[0];      
          $emailUsuario = $rows[1];
          $senhaUsuario = $rows[2];
+         $tipo_acesso  = $rows[3];
+         $descAcesso   = $rows[4];
       }  
    }
    
@@ -111,27 +118,37 @@
                <label for="inputPassword">Senha</label>
                <input type="text" class="form-control" id="inputPassword" name="inputPassword" value="<?php echo($senhaUsuario);?>">
             </div>
-            <?php 
-            //buscar os dados de tipo de acesso
-            $sql    = "SELECT id, descricao FROM tipo_acesso";
-            $resp   = mysqli_query($conexao_bd, $sql);
-            $opcoes = "<option value='0'>Selecione uma opção</option>";
-            while($rows=mysqli_fetch_row($resp)){
-               $idOpcao  = $rows[0];
-               $desOpcao = $rows[1];
-               $opcoes  .= "<option value='$idOpcao'>$desOpcao</option>"; 
-            }
-            if($idUsuario == 0){
-            ?>
             <div class="form-group">
                <label for="lstTipoAcesso">Tipo de acesso</label>
                <select class="form-control" id="lstTipoAcesso" name="lstTipoAcesso">
-                  <?php echo($opcoes); ?>
+                  <?php
+                  //verificar se novo usuário ou atualizar usuário:
+                  $opcoes = "";
+                  if($idUsuario == 0){
+                     //novo
+                     $sql    = "SELECT id, descricao FROM tipo_acesso";
+                     $resp   = mysqli_query($conexao_bd, $sql);
+                     $opcoes = "<option value='0'>Selecione uma opção</option>";
+                     while($rows=mysqli_fetch_row($resp)){
+                        $idOpcao  = $rows[0];
+                        $desOpcao = $rows[1];
+                        $opcoes  .= "<option value='$idOpcao'>$desOpcao</option>"; 
+                     }
+                  }else{
+                     //atualizar
+                     $opcoes = "<option value='$tipo_acesso'>$descAcesso</option>";
+                     $sql    = "SELECT id, descricao FROM tipo_acesso WHERE id <> $tipo_acesso";
+                     $resp   = mysqli_query($conexao_bd, $sql);
+                     while($rows=mysqli_fetch_row($resp)){
+                        $idOpcao  = $rows[0];
+                        $desOpcao = $rows[1];
+                        $opcoes  .= "<option value='$idOpcao'>$desOpcao</option>"; 
+                     }
+                  }
+                  echo($opcoes);
+                  ?>
                </select>
-            </div>
-            <?php
-            }
-            ?>
+            </div>            
             <input type="hidden" id="inputIdUsuario" name="inputIdUsuario" value="<?php echo($idUsuario) ?>">
             <button type="submit" class="btn btn-success">Gravar</button>&nbsp;
             <a href="usuario_list2.php" class="btn btn-warning" role="button">Retornar</a>
