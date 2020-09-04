@@ -7,6 +7,7 @@
    
    //recuperando dados da sessao
    $id_usuario   = $_SESSION["id_usuario"];   
+   $tipoAcesso   = $_SESSION["tipo_acesso"]; 
    $nome_usuario = "";
 
    //validar se codigo do usuario esta na sesao
@@ -51,14 +52,20 @@
             <li class="nav-item">
               <a class="nav-link" href="admin.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown active">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown09">
-                <a class="dropdown-item" href="#">Cadastro de pessoas</a>
-                <a class="dropdown-item" href="usuario_list2.php">Cadastro de usuários</a>                
-                <a class="dropdown-item" href="#">Cadastro de pacientes</a>
-              </div>
-            </li>
+            <?php 
+            if($tipoAcesso != 3) {
+            ?>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown09">
+                  <a class="dropdown-item" href="#">Cadastro de pessoas</a>
+                  <a class="dropdown-item" href="usuario_list2.php">Cadastro de usuários</a>                
+                  <a class="dropdown-item" href="#">Cadastro de pacientes</a>
+                </div>
+              </li>
+            <?php
+            }
+            ?>            
           </ul>  
           <ul class="navbar-nav navbar-right">
             <li class="nav-item dropdown">
@@ -100,9 +107,13 @@
                      echo("<td>$nome</td>");
                      echo("<td>$email</td>");
                      echo("<td>");
+                     if($tipoAcesso == 1){
                         echo("<a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$id' role='button'>Editar</a>&nbsp;");
                         if($id != $id_usuario)
                           echo("<a class='btn btn-lg btn-danger'  href='usuario_excluir.php?idUsuario=$id' role='button'>Excluir</a>");
+                     }else{
+                       echo("-");
+                     }
                      echo("</td>");
                      echo("</tr>");
                   } 
