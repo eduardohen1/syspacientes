@@ -16,12 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `syspacientes`
+-- Table structure for table `tipo_acesso`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `syspacientes` /*!40100 DEFAULT CHARACTER SET latin1 */;
+DROP TABLE IF EXISTS `tipo_acesso`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipo_acesso` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-USE `syspacientes`;
+--
+-- Dumping data for table `tipo_acesso`
+--
+
+LOCK TABLES `tipo_acesso` WRITE;
+/*!40000 ALTER TABLE `tipo_acesso` DISABLE KEYS */;
+INSERT INTO `tipo_acesso` VALUES (1,'ADMIN'),(2,'USER'),(3,'PACIENTE');
+/*!40000 ALTER TABLE `tipo_acesso` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usuarios`
@@ -35,6 +51,7 @@ CREATE TABLE `usuarios` (
   `email` varchar(50) NOT NULL,
   `senha` varchar(10) NOT NULL,
   `nome` varchar(50) NOT NULL,
+  `tipo_acesso` int(11) NOT NULL DEFAULT '2',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -45,7 +62,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'eduardohmferreira@gmail.com','admin','Eduardo Henrique'),(2,'admin@admin.com','123456','ADMIN DA SILVA'),(3,'admin2@admin.com.br','123456','NOVO ADMIN DA SILVAS');
+INSERT INTO `usuarios` VALUES (1,'eduardohmferreira@gmail.com','admin','Eduardo Henrique',1),(2,'admin@admin.com','123456','ADMIN DA SILVA',2),(3,'admin2@admin.com.br','123456','NOVO ADMIN DA SILVAS',3);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +75,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-03 22:24:26
+-- Dump completed on 2020-09-04 20:42:25
