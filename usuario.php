@@ -32,7 +32,7 @@
          $senhaUsuario = $rows[2];
       }  
    }
-   mysqli_close($conexao_bd);
+   
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -112,16 +112,21 @@
                <input type="text" class="form-control" id="inputPassword" name="inputPassword" value="<?php echo($senhaUsuario);?>">
             </div>
             <?php 
+            //buscar os dados de tipo de acesso
+            $sql    = "SELECT id, descricao FROM tipo_acesso";
+            $resp   = mysqli_query($conexao_bd, $sql);
+            $opcoes = "<option value='0'>Selecione uma opção</option>";
+            while($rows=mysqli_fetch_row($resp)){
+               $idOpcao  = $rows[0];
+               $desOpcao = $rows[1];
+               $opcoes  .= "<option value='$idOpcao'>$desOpcao</option>"; 
+            }
             if($idUsuario == 0){
             ?>
             <div class="form-group">
                <label for="lstTipoAcesso">Tipo de acesso</label>
                <select class="form-control" id="lstTipoAcesso" name="lstTipoAcesso">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <?php echo($opcoes); ?>
                </select>
             </div>
             <?php
@@ -137,4 +142,8 @@
 
 
 </body>
+<?php
+//encerrando a conexao com mysql
+mysqli_close($conexao_bd);
+?>
 </html>
