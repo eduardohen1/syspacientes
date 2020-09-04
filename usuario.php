@@ -83,7 +83,13 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Editando o usuário: <?php echo($nomeUsuario); ?></h1>
+        <?php
+         if($idUsuario != 0){
+            echo("<h1>Editando o usuário: $nomeUsuario</h1>");
+         }else{
+            echo("<h1>Cadastro de novo usuário:</h1>");
+         }
+        ?>
         <form
             method="post"
             action="usuario_gravar.php">
