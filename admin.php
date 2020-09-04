@@ -55,7 +55,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
               <div class="dropdown-menu" aria-labelledby="dropdown09">
                 <a class="dropdown-item" href="#">Cadastro de pessoas</a>
-                <a class="dropdown-item" href="usuario_list.php">Cadastro de usuários</a>                
+                <a class="dropdown-item" href="usuario_list2.php">Cadastro de usuários</a>                
                 <a class="dropdown-item" href="#">Cadastro de pacientes</a>
               </div>
             </li>
