@@ -28,7 +28,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>SysPacientes - Lista de usuários</title>
     <link rel="icon" href="img/favicon/favicon2.ico">
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <link rel="stylesheet" href="css/sweetalert2.css">
