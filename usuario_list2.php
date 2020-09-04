@@ -89,7 +89,7 @@
             </thead>
             <tbody>
                <?php
-                  $sql = "SELECT id, nome, email FROM usuarios ORDER BY nome";
+                  $sql = "SELECT id, nome, email FROM usuarios ORDER BY id";
                   $resp = mysqli_query($conexao_bd, $sql);
                   while($rows=mysqli_fetch_row($resp)){
                      $id    = $rows[0];
