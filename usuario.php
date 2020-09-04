@@ -15,7 +15,7 @@
       $nome_usuario = $rows[0];
    }
 
-   //verificar se o parametro de id de edição está vazio:
+   //verificar se o parametro de id de edição está vazio:   
    if(strlen($idUsuario)==0) 
       $idUsuario = 0;
 
@@ -23,7 +23,7 @@
    $emailUsuario = "";
    $senhaUsuario = "";
 
-   if($idUsuario == 0){
+   if($idUsuario != 0){
       $sql = "SELECT nome, email, senha FROM usuarios WHERE id = " . $idUsuario;
       $resp = mysqli_query($conexao_bd, $sql);
       if($rows=mysqli_fetch_row($resp)){
