@@ -108,6 +108,8 @@
                ?>
             </tbody>
         </table>  
+        <br>
+        <a class='btn btn-lg btn-primary' href='usuario.php' role='button'>Novo Usuário</a>
       </div>
     </div>
 

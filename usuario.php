@@ -4,19 +4,35 @@
    require_once('conexao.php');
 
    $idUsuario = $_GET['idUsuario'];
+
+   //recuperando dados da sessao
+   $id_usuario   = $_SESSION["id_usuario"];   
+   $nome_usuario = "";
+   
+   $sql = "SELECT nome FROM usuarios WHERE id = ".$id_usuario;
+   $resp = mysqli_query($conexao_bd, $sql);
+   if($rows=mysqli_fetch_row($resp)){
+      $nome_usuario = $rows[0];
+   }
+
+   //verificar se o parametro de id de edição está vazio:
+   if(strlen($idUsuario)==0) 
+      $idUsuario = 0;
+
    $nomeUsuario  = "";
    $emailUsuario = "";
    $senhaUsuario = "";
 
-   $sql = "SELECT nome, email, senha FROM usuarios WHERE id = " . $idUsuario;
-   $resp = mysqli_query($conexao_bd, $sql);
-   if($rows=mysqli_fetch_row($resp)){
-      $nomeUsuario  = $rows[0];      
-      $emailUsuario = $rows[1];
-      $senhaUsuario = $rows[2];
-   }  
+   if($idUsuario == 0){
+      $sql = "SELECT nome, email, senha FROM usuarios WHERE id = " . $idUsuario;
+      $resp = mysqli_query($conexao_bd, $sql);
+      if($rows=mysqli_fetch_row($resp)){
+         $nomeUsuario  = $rows[0];      
+         $emailUsuario = $rows[1];
+         $senhaUsuario = $rows[2];
+      }  
+   }
    mysqli_close($conexao_bd);
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
