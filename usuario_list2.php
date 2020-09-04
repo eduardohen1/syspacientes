@@ -78,7 +78,35 @@
       <div class="jumbotron">
         <h1>Lista de usuários</h1>
         <hr>
-                
+        <table class="table">
+            <thead>
+               <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">NOME</th>
+                  <th scope="col">E-MAIL</th>
+                  <th scope="col">...</th>
+               </tr>
+            </thead>
+            <tbody>
+               <?php
+                  $sql = "SELECT id, nome, email FROM usuarios ORDER BY nome";
+                  $resp = mysqli_query($conexao_bd, $sql);
+                  while($rows=mysqli_fetch_row($resp)){
+                     $id    = $rows[0];
+                     $nome  = $rows[1];
+                     $email = $rows[2];
+                     echo("<tr>");
+                     echo("<th scope='row'>$id</th>");
+                     echo("<td>$nome</td>");
+                     echo("<td>$email</td>");
+                     echo("<td>");
+                        echo("<a class='btn btn-lg btn-success' href='usuario.php?idUsuario=$id' role='button'>Editar</a>");                        
+                     echo("</td>");
+                     echo("</tr>");
+                  } 
+               ?>
+            </tbody>
+        </table>  
       </div>
     </div>
 
