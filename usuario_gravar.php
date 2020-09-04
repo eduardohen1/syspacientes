@@ -21,6 +21,6 @@
       //erro!
    }
    mysqli_close($conexao_bd);
-   header("location:usuario_list.php");
+   header("location:usuario_list2.php");
    
 ?>
