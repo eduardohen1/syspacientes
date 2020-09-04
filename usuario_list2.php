@@ -153,13 +153,13 @@
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          confirmButtonText: 'SIM'
+          confirmButtonText: 'SIM',
           cancelButtonText: 'NÃO'
         }).then((result) => {
           if (result.value) {
             window.location.href = "usuario_excluir.php?idUsuario=" + id;
           }
-        });
+        })
       }
     </script>
 </body>
